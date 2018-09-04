@@ -1,0 +1,323 @@
+body{
+    padding-top: 1.61rem;
+}
+#indexHeader{
+    display: block;
+    z-index: 999;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+#indexHeader .top-bar{
+    width: 100%;
+    height: .88rem;
+    position: relative;
+    background: #d43d3d;
+}
+#indexHeader .left{
+    position: absolute;
+    width: 1.08rem;
+    height: .5rem;
+    top: .22rem;
+    left: .2rem;
+}
+.top-bar .left a{
+    width: .64rem;
+    height: 100%;
+    margin-left: .24rem;
+    background: url("../img/icon/feed_ic_message_normal@3x_f2ea949f.png") no-repeat;
+    background-size: contain;
+    display: block;
+}
+#indexHeader .center{
+    width: 2.5rem;
+    height: 100%;
+    margin: 0 auto;
+}
+.center .title{
+    width: 1.96rem;
+    height: 100%;
+    float: left;
+    padding-left: .3rem;
+}
+.center .title a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("../img/icon/wap_logo@3x_581de69e.png") no-repeat right center;
+    background-size: contain;
+}
+.center .refresh{
+    width: .5rem;
+    height: 100%;
+    float: right;
+    transition: transform 1s ease;
+}
+/*.active{*/
+    /*transform: rotate(360deg);*/
+/*}*/
+.center .refresh i{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("../img/icon/titlebar_refresh_small@3x_96fb31e4.png") no-repeat center center;
+    background-size: .28rem .28rem;
+}
+#indexHeader .right{
+    position: absolute;
+    top: .22rem;
+    right: .2rem;
+    width: .72rem;
+    height: .48rem;
+}
+.right a{
+    width: .48rem;
+    height: 100%;
+    display: block;
+    background: url("../img/icon/feed_ic_search_normal@3x_0f198e56.png") no-repeat;
+    background-size: contain;
+}
+#menu{
+    background: #f4f5f6;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: .88rem;
+    border-bottom: .01rem solid #cccccc;
+}
+#menu .menu-list{
+    width: 6.7rem;
+    height: .72rem;
+    overflow: hidden;
+    display: flex;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+.menu-list::-webkit-scrollbar{
+    display: none;
+}
+.menu-list .btn{
+    line-height: .52rem;
+    text-align: center;
+    display: block;
+    width: 1.08rem;
+    height: .52rem;
+    padding: 0 .2rem;
+    margin: .1rem 0 .1rem .1rem;
+    font-size: .34rem;
+    color:#505050;
+
+}
+.menu-list .cur{
+    color: #f85959;
+}
+#menu .add{
+    background: #f4f5f6;
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    width: .8rem;
+    height: 100%;
+    text-align: center;
+    line-height: .65rem;
+    color: #f85959;
+    font-size: .76rem;
+    box-shadow: -.05rem 0 .05rem #ccc;
+}
+.add i{
+    color: #f85959;
+    font-size: .76rem;
+    font-weight: 400;
+}
+#list-content{
+    background:#fff;
+    width: 100%;
+}
+#list-content .middle-mode{
+    width: 6.9rem;
+    height: 2.12rem;
+    margin: 0 .3rem;
+    position: relative;
+}
+
+#list-content .btn{
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: .32rem 0;
+    position: relative;
+}
+.middle-mode .left{
+    width: 67%;
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+}
+.middle-mode .font{
+    color: #333;
+    font-size: .34rem;
+    font-weight: normal;
+    margin-right: .24rem;
+}
+#list-content .item-info{
+    width: 4.62rem;
+    margin-top: .12rem;
+    line-height: .26rem;
+    color: #999;
+    font-size: .12rem;
+}
+.item-info i{
+    padding: .01rem .02rem;
+    border: .01rem solid #f85959;
+    color: #f85959;
+    line-height: .1rem;
+    font-size: .12rem;
+    margin-right: .1rem;
+    opacity: .8;
+}
+.item-info span{
+    margin-right: .1rem;
+}
+.middle-mode .img{
+    width: 33%;
+    height: 1.48rem;
+    float: left;
+    vertical-align: middle;
+}
+.has-action{
+    margin: 0 .3rem;
+    position: relative;
+}
+.has-action .font{
+    color: #333;
+    font-size: .34rem;
+    font-weight: normal;
+    display: block;
+}
+.has-action span{
+    margin-right: .1rem;
+}
+#list-content .item_detail{
+    width: 6.9rem;
+    margin: 0 .3rem;
+    position: relative;
+}
+.item_detail .font{
+    color: #333;
+    font-size: .34rem;
+    font-weight: normal;
+    display: block;
+}
+.item_detail .img{
+    width: 100%;
+    height: 3.52rem;
+    margin-top: .12rem;
+}
+.has-action .clearfix{
+    display: flex;
+    width: 100%;
+    margin-top: .12rem;
+    justify-content: space-around;
+}
+.clearfix .img{
+    width: 2.3rem;
+    height: 1.48rem;
+}
+#back{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #000;
+    opacity: .5;
+    display: none;
+}
+.has-action .video-font{
+    position: absolute;
+    top: .36rem;
+    width: 100%;
+    color: #fff;
+    font-size: .3rem;
+    padding: 0 .1rem;
+    z-index: 300;
+}
+.has-action .video-img{
+    position: relative;
+    width: 100%;
+    height: 3.88rem;
+}
+.has-action .video-icon{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: url(https://s3.pstatp.com/growth/mobile_list/image/playicon_video@3x_dcf536ff.png) no-repeat center center;
+    background-size: 1rem 1rem;
+}
+
+
+
+
+#back.active{
+    display: block;
+    z-index: 2000;
+}
+.popup{
+    width: 5.4rem;
+    height: 4.5rem;
+    border-radius: .05rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #fff;
+    display: none;
+}
+.popup.active{
+    display: block;
+    z-index: 3000;
+}
+.popup .close{
+    width: .8em;
+    height: .64em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url("../img/icon/popup_banner_close_e6f62910.png") no-repeat center center;
+    background-size: .3rem .3rem;
+}
+.popup .banner{
+    width: 3.3rem;
+    height: 2.42rem;
+    margin: .2rem auto 0;
+    background: url("../img/index/popup_banner_6006ac97.png") no-repeat center center;
+    background-size: contain;
+}
+.popup .font{
+    margin: .12rem 0 .4rem;
+    font-size: .34rem;
+    text-align: center;
+    color: #a5a5a5;
+}
+.popup .download{
+    width: 4.4rem;
+    height: .8rem;
+    border-radius: .05rem;
+    background: rgb(255, 103, 98);
+    line-height: .8rem;
+    text-align: center;
+    font-size: .4rem;
+    color: #fff;
+    margin: 0 auto;
+}

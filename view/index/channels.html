@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>今日头条</title>
+    <link rel="shortcut icon" href="//s3.pstatp.com/image/toutiao_mobile/short_cut_icon_1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/index/css/channels.css">
+    <link rel="stylesheet" href="/assets/index/css/public.css">
+    <script src="/assets/index/js/rem%20-%20375.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="top">
+    <div class="title">频道管理</div>
+    <div class="back">
+        <a href="/index.php?c=page&m=index">
+
+        </a>
+    </div>
+
+</div>
+<div class="remove">
+    <div class="font">点击删除以下频道</div>
+    <ul class="controlDetail">
+        <?php foreach($remove as $k => $v) {?>
+        <li class="btn<?php echo $v['name'] == '推荐' ? ' cur':'' ?>">
+            <a href="javascript:void(0)">
+                <?php echo $v['name'] ?>
+            </a>
+        </li>
+        <?php } ?>
+    </ul>
+</div>
+<div class="add">
+    <div class="font">点击添加以下频道</div>
+    <ul class="controlDetail">
+        <?php foreach($add as $k => $v) {?>
+        <li class="btn">
+            <a href="javascript:void(0)">
+                <?php echo $v['name'] ?>
+            </a>
+        </li>
+        <?php } ?>
+    </ul>
+</div>
+</body>
+<script src="/assets/index/js/channels.js"></script>
+</html>

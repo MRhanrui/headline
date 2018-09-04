@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>今日头条</title>
+    <link rel="shortcut icon" href="//s3.pstatp.com/image/toutiao_mobile/short_cut_icon_1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/index/css/index.css">
+    <link rel="stylesheet" href="/assets/index/css/public.css">
+    <script src="/assets/index/js/rem.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/assets/public/jquery.twbsPagination.min.js"></script>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_791093_x2msosq67gb.css">
+</head>
+<body>
+<!--点击弹出模块-->
+<div id="back">
+</div>
+<div class="popup">
+    <div class="close"></div>
+    <div class="banner"></div>
+    <div class="font">已加载好您感兴趣的头条</div>
+    <div class="download">立即打开</div>
+</div>
+<!--顶部-->
+<div id="indexHeader">
+    <div class="top-bar">
+        <div class="left">
+            <a href="javasript:void(0)">
+            </a>
+        </div>
+        <div class="center">
+            <div class="title">
+                <a href="javasript:void(0)">
+                </a>
+            </div>
+            <div class="refresh">
+                <i>
+
+                </i>
+            </div>
+        </div>
+        <div class="right">
+            <a href="/index.php?c=page&m=search">
+            </a>
+        </div>
+    </div>
+</div>
+<!--主体-->
+<div>
+    <div id="menu">
+        <!--导航栏-->
+        <div class="menu-list">
+            <?php foreach($category as $k => $v) {?>
+            <a href="/index.php?c=page&m=index&cid=<?php echo $v['id'] ?>"
+               class="btn <?php echo $v['id'] == $cid ? 'cur':'' ?>">
+                <?php echo $v['name'] ?>
+            </a>
+            <?php } ?>
+        </div>
+        <div class="add">
+            <a href="/index.php?c=page&m=channels">
+                <i>+</i>
+            </a>
+
+        </div>
+    </div>
+    <!--新闻样式-->
+    <div id="list-content">
+        <?php foreach($news as $k => $v) {?>
+        <div class="middle-mode">
+            <a href="<?php echo $v['url'] ?>" class="btn">
+                  <div class="left">
+                    <h3 class="font">
+                        <?php echo $v['title'] ?>
+                    </h3>
+                    <div class="item-info">
+                        <i>热</i> <span>央视新闻网</span> <span><?php echo $v['time'] ?></span>
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="<?php echo $v['image'] ?> " alt="">
+                </div>
+            </a>
+        </div>
+        <?php } ?>
+        <!--<div class="has-action">-->
+            <!--<a href="javascript:void(0)" class="btn">-->
+                <!--<h3 class="font">-->
+                    <!--习近平时间｜习近平寄语青年：为构建人类命运共同体添砖献瓦-->
+                <!--</h3>-->
+                <!--<div class="item-info">-->
+                    <!--<i>置顶</i> <span>新华社</span> <span>评论 <em>5</em></span> <span><em>17</em>分钟前</span>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="has-action">-->
+            <!--<a href="javascript:void(0)" class="btn">-->
+                <!--<h3 class="font">-->
+                    <!--将星闪耀：4大军种及武警部队参谋部近期皆有新鲜血液注入 </h3>-->
+                <!--<div class="item-info">-->
+                    <!--<i>热</i> <span>新华社</span> <span>评论 <em>5</em></span> <span><em>17</em>分钟前</span>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="item_detail">-->
+            <!--<a href="javascript:void(0)" class="btn">-->
+                <!--<h3 class="font">龙眼号称一大补药，但对这几类人却如同“毒药”，最好一颗也别吃</h3>-->
+                <!--<div class="img">-->
+                    <!--<img src="/assets/index/img/index/1534057237770c2629ba4cb.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="item-info">-->
+                    <!--<span>39健康网</span>-->
+                    <!--<span>评论 <em>5</em></span>-->
+                    <!--<span><em>17</em>分钟前</span>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="has-action">-->
+            <!--<a href="javascript:void(0)" class="btn">-->
+                <!--<h3 class="font">土耳其之后，又一个大国摇摇欲坠！</h3>-->
+                <!--<ul class="clearfix">-->
+                    <!--<li class="img">-->
+                        <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
+                    <!--</li>-->
+                    <!--<li class="img">-->
+                        <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
+                    <!--</li>-->
+                    <!--<li class="img">-->
+                        <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--<div class="item-info">-->
+                    <!--<span>天天说钱</span>-->
+                    <!--<span>评论 <em>5</em></span>-->
+                    <!--<span><em>17</em>分钟前</span>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+
+        <!--视频样式-->
+        <!--<div class="has-action">-->
+            <!--<a href="javascript:void(0)" class="btn">-->
+                <!--<div class="video-font">-->
+                    <!--蒋介石政府派最高权威的人谈判，日本也派出相当级别的人-->
+                <!--</div>-->
+                <!--<div class="video-img">-->
+                    <!--<span class="video-icon"></span>-->
+                    <!--<img src="/assets/index/img/index/a83500002c3241ea9159.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="item-info">-->
+                    <!--<span>新浪网</span>-->
+                    <!--<span>评论 <em>5</em></span>-->
+                    <!--<span><em>17</em>分钟前</span>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+    </div>
+</div>
+
+</div>
+</body>
+<script src="/assets/index/js/index.js"></script>
+</html>

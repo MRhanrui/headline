@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="//s3.pstatp.com/image/toutiao_mobile/short_cut_icon_1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/index/css/search.css">
+    <link rel="stylesheet" href="/assets/index/css/public.css">
+    <script src="/assets/index/js/rem%20-%20375.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="top">
+    <div class="title">搜索</div>
+    <div class="back">
+        <a href="/index.php?c=page&m=index">
+
+        </a>
+    </div>
+</div>
+<div class="search_content">
+    <a href="#" class="action_chooser"></a>
+    <div class="arrowdown"></div>
+    <input type="search" placeholder="请输入搜索关键词" id="search_input" name="keyword" value="">
+    </form>
+
+</div>
+<ul id="list-content">
+
+</ul>
+<div id="loadmore">获取更多</div>
+</body>
+<script>
+    var page = 1;
+    $(function () {
+        $('#search_input').on('blur', function () {
+            let keyword = $(this).val()
+            $('#loadmore').click(function () {
+
+                $.ajax({
+                    url: '/index.php?c=page&m=searchList&s=' + keyword,
+                    data: {
+                        page: page + 1
+                    },
+                    success: function (data) {
+                        console.log(data)
+                        page = page + 1;
+                        data = JSON.parse(data);
+                        if (data.length) {
+                            data.forEach(v => {
+                                $(`<li>${v.title}</li>`)
+                                    .appendTo('#list-content');
+                            })
+                        } else {
+                            alert('我是有底线的')
+                        }
+                    }
+                })
+            })
+        })
+
+
+    })
+</script>
+</html>
