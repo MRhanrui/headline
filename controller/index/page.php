@@ -43,11 +43,6 @@ class page extends db
         }else{
             $keyword = '';
         }
-        if(isset($_GET['page'])){
-            $page = $_GET['page'];
-        }else{
-            $page = 1;
-        }
         include '../view/index/search.html';
     }
 
@@ -62,7 +57,7 @@ class page extends db
         if(isset($_GET['key'])){
             $key= $_GET['key'];
         }else{
-            $keyword = '';
+            $key = '';
         }
         if(isset($_GET['page'])){
             $page = $_GET['page'];
