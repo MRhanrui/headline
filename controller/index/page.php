@@ -38,27 +38,29 @@ class page extends db
 
     public function search()
     {
-//        if(isset($_GET['s'])){
-//            $keyword = $_GET['s'];
-//        }else{
-//            $keyword = ' ';
-//        }
-//        if(isset($_GET['page'])){
-//            $page = $_GET['page'];
-//        }else{
-//            $page = 1;
-//        }
-//        $results = $this->pdo
-//            ->query('select * from news where title like "%'.$keyword.'%" limit '.$this::PER_PAGE.' offset '.($page-1)*$this::PER_PAGE)
-//            ->fetchAll();
+        if(isset($_POST['s'])){
+            $keyword = $_POST['s'];
+        }else{
+            $keyword = '热点';
+        }
+        if(isset($_GET['page'])){
+            $page = $_GET['page'];
+        }else{
+            $page = 1;
+        }
         include '../view/index/search.html';
     }
 
     public function searchList(){
         header("Content-Type: text/html; charset=UTF-8");
 
-        if(isset($_GET['s'])){
-            $keyword = $_GET['s'];
+        if(isset($_POST['key'])){
+            $keyword = $_POST['key'];
+        }else{
+            $keyword = '';
+        }
+        if(isset($_GET['key'])){
+            $key= $_GET['key'];
         }else{
             $keyword = '';
         }
@@ -68,8 +70,8 @@ class page extends db
             $page = 1;
         }
         $results = $this->pdo
-            ->query('select * from news where title like "%'.$keyword.'%" limit '.$this::PER_PAGE.' offset '.($page-1)*$this::PER_PAGE)
+            ->query('select * from news where title like "%'.$key.'%" limit '.$this::PER_PAGE.' offset '.($page-1)*$this::PER_PAGE)
             ->fetchAll();
-        echo json_encode($results,true);
+        echo json_encode($results);
     }
 }
