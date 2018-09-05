@@ -164,13 +164,13 @@ body{
 }
 #list-content .item-info{
     width: 4.62rem;
-    margin-top: .12rem;
+    margin-top: .24rem;
     line-height: .26rem;
     color: #999;
     font-size: .12rem;
 }
 .item-info i{
-    padding: .01rem .02rem;
+    padding: .01rem ;
     border: .01rem solid #f85959;
     color: #f85959;
     line-height: .1rem;

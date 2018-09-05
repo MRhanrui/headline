@@ -1,19 +1,15 @@
 <?php
 include '../core/db.php';
 
-class news extends db {
+class category extends db {
     public function delete(){
-        $count  =  $this->pdo->exec("delete from  news where id =".$_GET['id']);
+        $count  =  $this->pdo->exec("delete from  category where id =".$_GET['id']);
         echo $count;
     }
     public function insert(){
-        $stmt = $this->pdo->prepare("insert into news(title,dsc,image,url,time,content)values(?,?,?,?,?,?)");
+        $stmt = $this->pdo->prepare("insert into category(name,defult)values(?,?)");
         $stmt->bindValue(1,'');
         $stmt->bindValue(2,'');
-        $stmt->bindValue(3, '');
-        $stmt->bindValue(4, '');
-        $stmt->bindValue(5, '');
-        $stmt->bindValue(6, '');
         echo $stmt->execute();
     }
 //    改哪个字段
@@ -22,7 +18,7 @@ class news extends db {
     public function update(){
         sleep(2);
         $k= $_GET['k'];
-        $stmt = $this->pdo->prepare('update news set '.$k.' = ? where id = ?');
+        $stmt = $this->pdo->prepare('update category set '.$k.' = ? where id = ?');
         $stmt->bindValue(1, $_GET['v']);
         $stmt->bindValue(2, $_GET['id']);
         echo $stmt->execute();

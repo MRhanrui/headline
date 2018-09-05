@@ -4,16 +4,14 @@ $(
         let add = document.querySelector('#add');
         let img = $('#loading-img');
         $(document).ajaxStart(function () {
-            console.log(1);
             img.show()
         });
         $(document).ajaxComplete(function () {
-            console.log(2)
             img.hide()
         });
         $(add).on('click', function () {
-            $.ajax({
-                    url: '/web/admin.php?c=news&m=insert',
+                    $.ajax({
+                    url: '/admin.php?c=category&m=insert',
                     success: function (data) {
                         if (data == 1) {
                             location.reload()
@@ -28,7 +26,7 @@ $(
             let id = $(this).closest('tr').attr('data-id');
             $.ajax(
                 {
-                    url: '/web/admin.php?c=news&m=delete&id='+ id,
+                    url: '/admin.php?c=category&m=delete&id='+ id,
                     success: function (data) {
                         if (data == 1) {
                             location.reload()
@@ -47,9 +45,9 @@ $(
             let v = $(this).val();
             $.ajax(
                 {
-                    url: '/web/admin.php',
+                    url: '/admin.php',
                     data: {
-                        c:'news',
+                        c:'category',
                         m:'update',
                         id:id,
                         k: k,
@@ -60,11 +58,12 @@ $(
         })
     }
 );
-(()=>{
-    let img = document.querySelector('#loading-img');
+$(function () {
+    let img = $('#loading-img');
     let a = 0;
     setInterval(function () {
         a += 360;
-        img.style.transform = `rotate(${a}deg)`
+        $('#loading-img').css({transform : `rotate(${a}deg)`})
     },1000)
-})();
+})
+
