@@ -41,7 +41,7 @@ class page extends db
         if(isset($_POST['s'])){
             $keyword = $_POST['s'];
         }else{
-            $keyword = '热点';
+            $keyword = '';
         }
         if(isset($_GET['page'])){
             $page = $_GET['page'];
