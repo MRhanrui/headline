@@ -3,7 +3,7 @@ include '../core/db.php';
 
 class page extends db
 {
-    const PER_PAGE = 10;
+    const PER_PAGE = 8;
 //    首页
     public function index()
     {
@@ -42,7 +42,7 @@ class page extends db
         if(isset($_POST['s'])){
             $keyword = $_POST['s'];
             $result = $this->pdo
-                ->query('select * from news where title like "%'.$keyword.'%" limit'.$this::PER_PAGE)
+                ->query('select * from news where title like "%'.$keyword.'%" limit '.$this::PER_PAGE)
                 ->fetchAll();
         }else{
             $result = [];

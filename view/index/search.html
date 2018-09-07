@@ -36,19 +36,20 @@
 <ul id="list-content">
     <?php
         if(count($result) == 0){ ?>
-        <li> <li>
-    <?php }?>
-    <?php
+            <li>未搜索到内容</li>
+        <?php }?>
+        <?php
         if(count($result) != 0){ ?>
-    <li> 共搜索到<?php echo count($result) ?>条结果<li>
+    <li> 共搜索到<?php echo count($result) ?>条结果
+    <li>
         <?php foreach($result as $k=> $v){ ?>
-            <li><?php echo $v['title'] ?></li>
-        <?php }
-        }?>
+    <li><?php echo $v['title'] ?></li>
 
-
+    <?php } ?>
+        <div id="loadmore" type="submit">获取更多</div>
+    <?php }?>
 </ul>
-<div id="loadmore" type="submit">获取更多</div>
+
 </body>
 <script>
     var page = 1;
