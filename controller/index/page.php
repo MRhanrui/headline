@@ -20,7 +20,7 @@ class page extends db
 
         $news = $this->pdo
             ->query(
-                'select *from news where cid= ' . $cid
+                'select * from news where cid= ' . $cid .' limit '.$this::PER_PAGE
             )
             ->fetchAll();
         include '../view/index/index.html';
@@ -42,7 +42,7 @@ class page extends db
         if(isset($_POST['s'])){
             $keyword = $_POST['s'];
             $result = $this->pdo
-                ->query('select * from news where title like "%'.$keyword.'%" limit 10')
+                ->query('select * from news where title like "%'.$keyword.'%" limit'.$this::PER_PAGE)
                 ->fetchAll();
         }else{
             $result = [];
