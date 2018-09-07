@@ -4,6 +4,7 @@
     <thead>
     <tr>
         <th>id</th>
+        <th>cid</th>
         <th>title</th>
         <th>des</th>
         <th>img</th>
@@ -17,6 +18,9 @@
     <tr data-id = "<?php echo $v['id'] ?> ">
         <td>
             <input data-type="id" type="text" class="form-control" value="<?php echo $v['id'] ?>">
+        </td>
+        <td>
+            <input data-type="title" type="text" class="form-control" value="<?php echo $v['cid'] ?>">
         </td>
         <td>
             <input data-type="title" type="text" class="form-control" value="<?php echo $v['title'] ?>">

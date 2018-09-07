@@ -9,10 +9,10 @@ class manage extends db
     {
         //接收页数
         if (isset($_GET['page'])) {
-            $page = $_GET['page'];
-        } else {
-            $page = 1;
-        }
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
 //总条数
         $num = $this->pdo
             ->query('select count(*) as total from news ')

@@ -1,0 +1,45 @@
+{
+  "_from": "mescroll.js",
+  "_id": "mescroll.js@1.3.5",
+  "_inBundle": false,
+  "_integrity": "sha512-a7hG91U15J2BXvxualPDuzsZXRr32iFwxvbrGseIp13aAj8EDTSWA2q6QVkaGJkXDYfr30k/kouXMdNO8lFL6w==",
+  "_location": "/mescroll.js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "mescroll.js",
+    "name": "mescroll.js",
+    "escapedName": "mescroll.js",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/mescroll.js/-/mescroll.js-1.3.5.tgz",
+  "_shasum": "7affebbc73fb76a6965f9c802d2361caffa2f66f",
+  "_spec": "mescroll.js",
+  "_where": "C:\\Users\\Dell123\\Desktop\\headline\\capture",
+  "author": {
+    "name": "wenju"
+  },
+  "bugs": {
+    "url": "https://github.com/mescroll/mescroll/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "精致的下拉刷新和上拉加载 js框架.支持vue,完美运行于移动端和主流PC浏览器 ( a great JS framework for pull-refresh and pull-up-loading )",
+  "homepage": "https://github.com/mescroll/mescroll#readme",
+  "license": "MIT",
+  "main": "mescroll.min.js",
+  "name": "mescroll.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mescroll/mescroll.git"
+  },
+  "scripts": {},
+  "version": "1.3.5"
+}

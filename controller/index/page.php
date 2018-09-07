@@ -3,10 +3,11 @@ include '../core/db.php';
 
 class page extends db
 {
-    const PER_PAGE = 4;
+    const PER_PAGE = 10;
 //    首页
     public function index()
     {
+
         header("Content-Type: text/html; charset=UTF-8");
         if (isset($_GET['cid'])) {
             $cid = $_GET['cid'];
@@ -19,7 +20,7 @@ class page extends db
 
         $news = $this->pdo
             ->query(
-                'select * from news where cid= ' . $cid
+                'select *from news where cid= ' . $cid
             )
             ->fetchAll();
         include '../view/index/index.html';
@@ -40,9 +41,14 @@ class page extends db
     {
         if(isset($_POST['s'])){
             $keyword = $_POST['s'];
+            $result = $this->pdo
+                ->query('select * from news where title like "%'.$keyword.'%" limit 10')
+                ->fetchAll();
         }else{
+            $result = [];
             $keyword = '';
         }
+
         include '../view/index/search.html';
     }
 
@@ -68,5 +74,14 @@ class page extends db
             ->query('select * from news where title like "%'.$key.'%" limit '.$this::PER_PAGE.' offset '.($page-1)*$this::PER_PAGE)
             ->fetchAll();
         echo json_encode($results);
+    }
+
+    public function indexList(){
+        //接收页数
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+        } else {
+            $page = 1;
+        }
     }
 }

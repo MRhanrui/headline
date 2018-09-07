@@ -25,18 +25,33 @@
     <a href="#" class="action_chooser"></a>
     <div class="arrowdown"></div>
     <form action="/index.php?c=page&m=search" method="post">
-        <input type="search" placeholder="请输入搜索关键词" id="search_input" name="s" value="<?php echo $keyword ?> ">
+        <input type="search" placeholder="请输入搜索关键词" id="search_input" name="s" value="<?php if(count($result) != 0){
+         echo $keyword;
+         }
+         ?>">
         <input type="submit" style="display: none">
     </form>
 
 </div>
 <ul id="list-content">
+    <?php
+        if(count($result) == 0){ ?>
+        <li> 请输入关键词<li>
+    <?php }?>
+    <?php
+        if(count($result) != 0){ ?>
+    <li> 共搜索到<?php echo count($result) ?>条结果<li>
+        <?php foreach($result as $k=> $v){ ?>
+            <li><?php echo $v['title'] ?></li>
+        <?php }
+        }?>
+
 
 </ul>
 <div id="loadmore" type="submit">获取更多</div>
 </body>
 <script>
-    var page = 0;
+    var page = 1;
     $(function () {
         $('#loadmore').on('click', function () {
             let key = '<?php echo $keyword ?>';

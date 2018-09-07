@@ -7,8 +7,9 @@
     "async": "^2.6.1",
     "bloom-filter-x": "^1.0.3",
     "cheerio": "^1.0.0-rc.2",
-    "iconv-lite": "^0.4.24",
     "express": "^4.16.3",
+    "iconv-lite": "^0.4.24",
+    "mescroll.js": "^1.3.5",
     "mysql": "^2.16.0",
     "request": "^2.88.0",
     "wallpaper": "^3.0.0"

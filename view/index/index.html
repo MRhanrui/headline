@@ -9,9 +9,13 @@
     <link rel="shortcut icon" href="//s3.pstatp.com/image/toutiao_mobile/short_cut_icon_1.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/index/css/index.css">
     <link rel="stylesheet" href="/assets/index/css/public.css">
+    <link rel="stylesheet" href="/assets/index/js/mescroll/mescroll.min.css">
     <script src="/assets/index/js/rem.js"></script>
     <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
     <script src="/assets/public/jquery.twbsPagination.min.js"></script>
+    <link rel="stylesheet" href="/assets/index/js/mescroll/mescroll.min.css">
+
+
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_791093_x2msosq67gb.css">
 </head>
 <body>
@@ -68,99 +72,211 @@
         </div>
     </div>
     <!--新闻样式-->
-    <div id="list-content">
-        <?php foreach($news as $k => $v) {?>
-        <div class="middle-mode">
-            <a href="<?php echo $v['url'] ?>" class="btn">
-                  <div class="left">
-                    <h3 class="font">
-                        <?php echo $v['title'] ?>
-                    </h3>
-                    <div class="item-info">
-                        <i>热</i> <span>央视新闻网</span> <span><?php echo $v['time'] ?></span>
-                    </div>
+    <div id="mescroll" class="mescroll">
+        <div>
+            <div id="list-content" >
+                <?php foreach($news as $k => $v) {?>
+                <div class="middle-mode">
+                    <a href="<?php echo $v['url'] ?>" class="btn">
+                        <div class="left">
+                            <h3 class="font">
+                                <?php echo $v['title'] ?>
+                            </h3>
+                            <div class="item-info">
+                                <i>热</i> <span>央视新闻网</span> <span><?php echo $v['time'] ?></span>
+                            </div>
+                        </div>
+                        <div class="img">
+                            <img src="<?php echo $v['image'] ?> " alt="">
+                        </div>
+                    </a>
                 </div>
-                <div class="img">
-                    <img src="<?php echo $v['image'] ?> " alt="">
-                </div>
-            </a>
-        </div>
-        <?php } ?>
-        <!--<div class="has-action">-->
-            <!--<a href="javascript:void(0)" class="btn">-->
-                <!--<h3 class="font">-->
+                <?php } ?>
+                <div>
+                    <!--<div class="has-action">-->
+                    <!--<a href="javascript:void(0)" class="btn">-->
+                    <!--<h3 class="font">-->
                     <!--习近平时间｜习近平寄语青年：为构建人类命运共同体添砖献瓦-->
-                <!--</h3>-->
-                <!--<div class="item-info">-->
+                    <!--</h3>-->
+                    <!--<div class="item-info">-->
                     <!--<i>置顶</i> <span>新华社</span> <span>评论 <em>5</em></span> <span><em>17</em>分钟前</span>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="has-action">-->
-            <!--<a href="javascript:void(0)" class="btn">-->
-                <!--<h3 class="font">-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="has-action">-->
+                    <!--<a href="javascript:void(0)" class="btn">-->
+                    <!--<h3 class="font">-->
                     <!--将星闪耀：4大军种及武警部队参谋部近期皆有新鲜血液注入 </h3>-->
-                <!--<div class="item-info">-->
+                    <!--<div class="item-info">-->
                     <!--<i>热</i> <span>新华社</span> <span>评论 <em>5</em></span> <span><em>17</em>分钟前</span>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="item_detail">-->
-            <!--<a href="javascript:void(0)" class="btn">-->
-                <!--<h3 class="font">龙眼号称一大补药，但对这几类人却如同“毒药”，最好一颗也别吃</h3>-->
-                <!--<div class="img">-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="item_detail">-->
+                    <!--<a href="javascript:void(0)" class="btn">-->
+                    <!--<h3 class="font">龙眼号称一大补药，但对这几类人却如同“毒药”，最好一颗也别吃</h3>-->
+                    <!--<div class="img">-->
                     <!--<img src="/assets/index/img/index/1534057237770c2629ba4cb.jpg" alt="">-->
-                <!--</div>-->
-                <!--<div class="item-info">-->
+                    <!--</div>-->
+                    <!--<div class="item-info">-->
                     <!--<span>39健康网</span>-->
                     <!--<span>评论 <em>5</em></span>-->
                     <!--<span><em>17</em>分钟前</span>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="has-action">-->
-            <!--<a href="javascript:void(0)" class="btn">-->
-                <!--<h3 class="font">土耳其之后，又一个大国摇摇欲坠！</h3>-->
-                <!--<ul class="clearfix">-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="has-action">-->
+                    <!--<a href="javascript:void(0)" class="btn">-->
+                    <!--<h3 class="font">土耳其之后，又一个大国摇摇欲坠！</h3>-->
+                    <!--<ul class="clearfix">-->
                     <!--<li class="img">-->
-                        <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
+                    <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
                     <!--</li>-->
                     <!--<li class="img">-->
-                        <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
+                    <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
                     <!--</li>-->
                     <!--<li class="img">-->
-                        <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
+                    <!--<img src="/assets/index/img/index/15341532690497c8c5a9b4d.jpg" alt="">-->
                     <!--</li>-->
-                <!--</ul>-->
-                <!--<div class="item-info">-->
+                    <!--</ul>-->
+                    <!--<div class="item-info">-->
                     <!--<span>天天说钱</span>-->
                     <!--<span>评论 <em>5</em></span>-->
                     <!--<span><em>17</em>分钟前</span>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</div>-->
 
-        <!--视频样式-->
-        <!--<div class="has-action">-->
-            <!--<a href="javascript:void(0)" class="btn">-->
-                <!--<div class="video-font">-->
+                    <!--视频样式-->
+                    <!--<div class="has-action">-->
+                    <!--<a href="javascript:void(0)" class="btn">-->
+                    <!--<div class="video-font">-->
                     <!--蒋介石政府派最高权威的人谈判，日本也派出相当级别的人-->
-                <!--</div>-->
-                <!--<div class="video-img">-->
+                    <!--</div>-->
+                    <!--<div class="video-img">-->
                     <!--<span class="video-icon"></span>-->
                     <!--<img src="/assets/index/img/index/a83500002c3241ea9159.jpg" alt="">-->
-                <!--</div>-->
-                <!--<div class="item-info">-->
+                    <!--</div>-->
+                    <!--<div class="item-info">-->
                     <!--<span>新浪网</span>-->
                     <!--<span>评论 <em>5</em></span>-->
                     <!--<span><em>17</em>分钟前</span>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                </div>
+
+            </div>
+        </div>
+
     </div>
+
 </div>
 
 </div>
 </body>
 <script src="/assets/index/js/index.js"></script>
+<script src="/assets/index/js/mescroll/mescroll.min.js"></script>
+<script>
+    $(function () {
+        var mescroll = new MeScroll("mescroll", { //第一个参数"mescroll"对应上面布局结构div的id (1.3.5版本支持传入dom对象)
+            down: {
+                callback: downCallback //下拉刷新的回调,别写成downCallback(),多了括号就自动执行方法了
+            },
+            up: {
+                callback: upCallback, //上拉加载回调,简写callback:function(page){upCallback(page);}
+                //以下是一些常用的配置,当然不写也可以的.
+                page: {
+                    num: 0, //当前页 默认0,回调之前会加1; 即callback(page)会从1开始
+                    size: 10, //每页数据条数,默认10
+                },
+                noMoreSize: 5, //如果列表已无数据,可设置列表的总数量要大于5才显示无更多数据;避免列表数据过少(比如只有一条数据),显示无更多数据会不好看
+                toTop: {
+                    //回到顶部按钮
+                    src: "../img/mescroll-totop.png", //图片路径,默认null,支持网络图
+                    offset: 1000, //列表滚动1000px才显示回到顶部按钮
+                },
+                empty: {
+                    //列表第一页无任何数据时,显示的空提示布局; 需配置warpId才显示
+                    warpId:	"mescroll", //父布局的id (1.3.5版本支持传入dom元素)
+                    icon: "/assets/index/img/empty.png", //图标,默认null,支持网络图
+                    tip: "暂无相关数据~", //提示
+                }
+            }
+        });
+        //下拉刷新的回调
+        function downCallback(){
+            $.ajax({
+                url: '/index.php?c=page&m=index',
+                success: function(data){
+                    //联网成功的回调,隐藏下拉刷新的状态;
+                    mescroll.endSuccess();//无参
+                    //设置数据
+                    data = JSON.parse(data);
+                    let html =  '';
+                    if (data.length) {
+                        data.forEach(v => {
+                            let a = ` <div class="middle-mode">
+                    <a href="${v.url}" class="btn">
+                        <div class="left">
+                            <h3 class="font">
+                                ${v.title}
+                            </h3>
+                            <div class="item-info">
+                                <i>热</i> <span>央视新闻网</span> <span>${v.time}</span>
+                            </div>
+                        </div>
+                        <div class="img">
+                            <img src="${v.image} " alt="">
+                        </div>
+                    </a>
+                </div>`
+                            $('#list-content').html(html += a)
+                        })
+                    }
+                    //setXxxx(data);//自行实现 TODO
+                },
+                error: function(data){
+                    //联网失败的回调,隐藏下拉刷新的状态
+                    mescroll.endErr();
+                }
+            });
+        }
+
+        let page = {num:1, size:10};
+        function upCallback(page){
+            $.ajax({
+                url: '/index.php?c=page&m=index&page='+ page.num +"&size="+ page.size,
+                success: function(curPageData){
+                    //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
+                    //mescroll会根据传的参数,自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+
+                    //方法一(推荐): 后台接口有返回列表的总页数 totalPage
+                    //必传参数(当前页的数据个数, 总页数)
+                    //mescroll.endByPage(curPageData.length, totalPage);
+
+                    //方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+                    //必传参数(当前页的数据个数, 总数据量)
+                    //mescroll.endBySize(curPageData.length, totalSize);
+
+                    //方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+                    //必传参数(当前页的数据个数, 是否有下一页true/false)
+                    //mescroll.endSuccess(curPageData.length, hasNext);
+
+                    //方法四 (不推荐),会存在一个小问题:比如列表共有20条数据,每页加载10条,共2页.
+                    //如果只根据当前页的数据个数判断,则需翻到第三页才会知道无更多数据
+                    //如果传了hasNext,则翻到第二页即可显示无更多数据.
+                    //mescroll.endSuccess(curPageData.length);
+
+                    //设置列表数据
+                    //setListData(curPageData);//自行实现 TODO
+                },
+                error: function(){
+                    //联网失败的回调,隐藏下拉刷新和上拉加载的状态
+                    mescroll.endErr();
+                }
+            });
+        }
+    })
+</script>
 </html>
