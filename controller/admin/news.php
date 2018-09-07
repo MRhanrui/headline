@@ -7,7 +7,7 @@ class news extends db {
         echo $count;
     }
     public function insert(){
-        $stmt = $this->pdo->prepare("insert into news(title,dsc,image,url,time,content)values(?,?,?,?,?,?)");
+        $stmt = $this->pdo->prepare("insert into news(title,cid,dsc,image,url,time,content)values(?,'1',?,?,?,?,?)");
         $stmt->bindValue(1,'');
         $stmt->bindValue(2,'');
         $stmt->bindValue(3, '');
