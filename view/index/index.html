@@ -59,7 +59,7 @@
         <div class="menu-list">
             <?php foreach($category as $k => $v) {?>
             <a href="/index.php?c=page&m=index&cid=<?php echo $v['id'] ?>"
-               class="btn <?php echo $v['id'] == $cid ? 'cur':'' ?>">
+               class="btn <?php echo $v['id'] == $cid ? 'cur':'' ?>" data-cid="<?php echo $v['id'] ?>">
                 <?php echo $v['name'] ?>
             </a>
             <?php } ?>
@@ -179,6 +179,7 @@
 <script src="/assets/index/js/mescroll/mescroll.min.js"></script>
 <script>
     $(function () {
+
         var mescroll = new MeScroll("mescroll", { //第一个参数"mescroll"对应上面布局结构div的id (1.3.5版本支持传入dom对象)
             down: {
                 callback: downCallback //下拉刷新的回调,别写成downCallback(),多了括号就自动执行方法了
@@ -228,7 +229,8 @@
             $.ajax({
                 url: '/index.php?c=page&m=indexList',
                 data:{
-                  d:  page.num
+                    cid: <?php echo $_GET['cid'] ?>,
+                    d:  page.num
                 },
                 success: function(curPageData){
                     //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
@@ -283,6 +285,7 @@
                 }
             });
         }
+
     })
 </script>
 </html>

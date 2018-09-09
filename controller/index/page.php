@@ -23,6 +23,7 @@ class page extends db
                 'select * from news where cid= ' . $cid .' limit '.$this::PER_PAGE
             )
             ->fetchAll();
+
         include '../view/index/index.html';
     }
 
@@ -88,14 +89,20 @@ class page extends db
 
 //    首页刷新ajax
     public function indexList(){
+
         //接收页数
+        if (isset($_GET['cid'])) {
+            $cid = $_GET['cid'];
+        } else {
+            $cid = 1;
+        }
         if (isset($_GET['d'])) {
             $page = $_GET['d'];
         } else {
             $page = 1;
         }
         $results = $this->pdo
-            ->query('select * from news  limit '.$this::PER_PAGE.' offset '.($page)*$this::PER_PAGE)
+            ->query('select * from news where cid=  ' . $cid . ' limit '.$this::PER_PAGE.' offset '.($page)*$this::PER_PAGE)
             ->fetchAll();
         echo json_encode($results);
     }
