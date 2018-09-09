@@ -26,6 +26,7 @@ class page extends db
         include '../view/index/index.html';
     }
 
+//    分类页
     public function channels()
     {
         $remove = $this->pdo
@@ -37,6 +38,15 @@ class page extends db
         include '../view/index/channels.html';
     }
 
+//    分类页ajax
+    public function channelsList(){
+        $stmt = $this->pdo->prepare('update category set defult = ? where id = ?');
+        $stmt->bindValue(1, $_GET['v']);
+        $stmt->bindValue(2, $_GET['id']);
+        echo $stmt->execute();
+    }
+
+//搜索页
     public function search()
     {
         if(isset($_POST['s'])){
@@ -51,7 +61,7 @@ class page extends db
 
         include '../view/index/search.html';
     }
-
+//搜索页ajax
     public function searchList(){
         header("Content-Type: text/html; charset=UTF-8");
 
@@ -76,12 +86,17 @@ class page extends db
         echo json_encode($results);
     }
 
+//    首页刷新ajax
     public function indexList(){
         //接收页数
-        if (isset($_GET['page'])) {
-            $page = $_GET['page'];
+        if (isset($_GET['d'])) {
+            $page = $_GET['d'];
         } else {
             $page = 1;
         }
+        $results = $this->pdo
+            ->query('select * from news  limit '.$this::PER_PAGE.' offset '.($page)*$this::PER_PAGE)
+            ->fetchAll();
+        echo json_encode($results);
     }
 }

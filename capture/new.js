@@ -7,27 +7,30 @@ let mysql = require('mysql')
 let filter = require('bloom-filter-x')
 
 iconv.skipDecodeWarning = true;
-// 初始化布隆过滤器
+
 let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'headline'
 })
-
-function touch() {
-    let newUrl = [];
-    let urls = [];
+let newUrl = [];
+let urls = [];
+// 初始化布隆过滤器
+function start() {
     let select_sql = 'select url from news ';
     connection.query(select_sql, (err, result, fields) => {
         if (err) throw err;
         result.forEach((v) => {
             let url = v.url;
-            if (filter.add(url)) {
-                urls.push(url)
-            }
-        })
+            filter.add(url);
+        });
+        console.log('初始化完成');
+        touch();
     });
+}
+
+function touch() {
     request({
         url: 'http://news.zol.com.cn/',
         encoding: null //默认编码方式无
@@ -38,13 +41,13 @@ function touch() {
             let t = $(v).find('.info-head a');
             let title = t.text();
             let dsc = $(v).find('p').contents().eq(0).text();
-            let image = $(v).find('img').attr('.src');
+            let image = $(v).find('img').attr('src');
             let url = t.attr('href');
 
             if (filter.add(url)) {
                 urls.push(url)
                 newUrl.push({
-                    'cid':1,
+                    'cid':3,
                     'title': title,
                     'dsc': dsc,
                     'image': image,
@@ -52,7 +55,6 @@ function touch() {
                 })
             }
         });
-        if (urls.length) {
             let d = new Date();
             console.log(d.toTimeString() + "抓取一次，本次更新" + urls.length + "条")
             async.eachLimit(newUrl, 1, (v, next) => {
@@ -75,19 +77,18 @@ function touch() {
                         let insert_sql = 'insert into news (cid,title,dsc,image,url,time,content) values (?,?,?,?,?,?,?)';
                         connection.query(insert_sql, [cid,title, dsc, image, url, pubtime, content], (err, result, fields) => {
                             if (err) throw err;
-                            console.log('finish')
+                            console.log('一条数据已添加')
                         })
 
                     }
                 });
                 next(null)
-            })
-        } else {
-            let d = new Date();
-            console.log(d.toTimeString() + "抓取一次，本次未更新")
-
-        }
+            }),
+            () => {
+                console.log("数据已添加完成")
+                setInterval(touch, 2*60*60*1000);
+            }
     })
 }
-touch()
-setInterval(touch, 2*60*60*1000);
+start();
+

@@ -25,21 +25,21 @@
 </div>
 <div class="remove">
     <div class="font">点击删除以下频道</div>
-    <ul class="controlDetail">
+    <ul class="controlDetail" id="up">
         <?php foreach($remove as $k => $v) {?>
-        <li class="btn<?php echo $v['name'] == '推荐' ? ' cur':'' ?>">
+        <li class="btn<?php echo $v['name'] == '推荐' ? ' cur':'' ?>" data-id="<?php echo $v['id']?>">
             <a href="javascript:void(0)">
                 <?php echo $v['name'] ?>
             </a>
-        </li>
+
         <?php } ?>
     </ul>
 </div>
 <div class="add">
     <div class="font">点击添加以下频道</div>
-    <ul class="controlDetail">
+    <ul class="controlDetail" id="down">
         <?php foreach($add as $k => $v) {?>
-        <li class="btn">
+        <li class="btn" data-id="<?php echo $v['id']?>">
             <a href="javascript:void(0)">
                 <?php echo $v['name'] ?>
             </a>

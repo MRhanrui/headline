@@ -45,7 +45,6 @@ $(
 
         })
         $(tbody).on('blur', '.form-control', function () {
-
             let id = parseInt($(this).closest('tr').attr('data-id'));
             console.log(id)
             let k = $(this).attr('data-type');

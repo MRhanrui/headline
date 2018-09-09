@@ -1,18 +1,39 @@
-let remove = document.querySelector('.remove');
-let add = document.querySelector('.add')
-remove.addEventListener('click',(e)=>{
-    if(e.target.offsetParent.className == 'btn bur'){
+let remove = $('.remove');
+let add = $('.add')
+remove.on('click','.btn',function(){
+    console.log($(this).attr('class'))
+    if($(this).attr('class') == 'btn bur'){
         remove.onclick = null;
-    }else if(e.target.offsetParent.className == 'btn'){
-        let a = e.target.offsetParent;
-        add.appendChild(a);
-        // remove.removeChild(a);
+    }else if($(this).attr('class') == 'btn'){
+       $('#down').prepend($(this))
     }
+    let id = $(this).attr('data-id');
+    console.log(id)
+    $.ajax(
+        {
+            url: '/index.php',
+            data: {
+                c: 'page',
+                m: 'channelsList',
+                id: id,
+                v: 0
+            }
+        }
+    )
 });
-add.addEventListener('click',(e)=>{
-    if(e.target.offsetParent.className == 'btn'){
-        let a = e.target.offsetParent;
-        remove.appendChild(a);
-        // add.removeChild(a);
-    }
+add.on('click','.btn',function (){
+        $('#up').append($(this));
+    let id = $(this).attr('data-id');
+    console.log(id)
+    $.ajax(
+        {
+            url: '/index.php',
+            data: {
+                c: 'page',
+                m: 'channelsList',
+                id: id,
+                v: 1
+            }
+        }
+    )
 });

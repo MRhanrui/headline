@@ -207,33 +207,13 @@
         //下拉刷新的回调
         function downCallback(){
             $.ajax({
-                url: '/index.php?c=page&m=index',
+                url: '/index.php?c=page&m=indexList',
                 success: function(data){
                     //联网成功的回调,隐藏下拉刷新的状态;
                     mescroll.endSuccess();//无参
                     //设置数据
-                    data = JSON.parse(data);
-                    let html =  '';
-                    if (data.length) {
-                        data.forEach(v => {
-                            let a = ` <div class="middle-mode">
-                    <a href="${v.url}" class="btn">
-                        <div class="left">
-                            <h3 class="font">
-                                ${v.title}
-                            </h3>
-                            <div class="item-info">
-                                <i>热</i> <span>央视新闻网</span> <span>${v.time}</span>
-                            </div>
-                        </div>
-                        <div class="img">
-                            <img src="${v.image} " alt="">
-                        </div>
-                    </a>
-                </div>`
-                            $('#list-content').html(html += a)
-                        })
-                    }
+
+
                     //setXxxx(data);//自行实现 TODO
                 },
                 error: function(data){
@@ -242,11 +222,14 @@
                 }
             });
         }
-
+        // 上拉加载的回调
         let page = {num:1, size:10};
         function upCallback(page){
             $.ajax({
-                url: '/index.php?c=page&m=index&page='+ page.num +"&size="+ page.size,
+                url: '/index.php?c=page&m=indexList',
+                data:{
+                  d:  page.num
+                },
                 success: function(curPageData){
                     //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
                     //mescroll会根据传的参数,自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
@@ -266,10 +249,33 @@
                     //方法四 (不推荐),会存在一个小问题:比如列表共有20条数据,每页加载10条,共2页.
                     //如果只根据当前页的数据个数判断,则需翻到第三页才会知道无更多数据
                     //如果传了hasNext,则翻到第二页即可显示无更多数据.
-                    //mescroll.endSuccess(curPageData.length);
+                    mescroll.endSuccess(curPageData.length);
 
                     //设置列表数据
-                    //setListData(curPageData);//自行实现 TODO
+                    data = JSON.parse(curPageData);
+                    let html =  $('#list-content').html();
+                    if (data.length) {
+                        data.forEach(v => {
+                            let a = ` <div class="middle-mode">
+                    <a href="${v.url}" class="btn">
+                        <div class="left">
+                            <h3 class="font">
+                                ${v.title}
+                            </h3>
+                            <div class="item-info">
+                                <i>热</i> <span>央视新闻网</span> <span>${v.time}</span>
+                            </div>
+                        </div>
+                        <div class="img">
+                            <img src="${v.image} " alt="">
+                        </div>
+                    </a>
+                </div>`
+
+                            $('#list-content').html(html += a)
+                        })
+
+                    }
                 },
                 error: function(){
                     //联网失败的回调,隐藏下拉刷新和上拉加载的状态
