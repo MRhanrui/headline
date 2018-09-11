@@ -41,7 +41,7 @@ function touch() {
             let t = $(v).find('.info-head a');
             let title = t.text();
             let dsc = $(v).find('p').contents().eq(0).text();
-            let image = $(v).find('img').attr('src');
+            let image = $(v).find('img').attr('.src');
             let url = t.attr('href');
 
             if (filter.add(url)) {
